@@ -9,7 +9,6 @@ router
             const hbsObj = {
                 burgers: data
             }
-            console.log(hbsObj)
             res.render("index", hbsObj)
         })
     })
@@ -17,15 +16,11 @@ router
         burger.create([
             "name", "uneaten"
         ], [
-            req.body.name, req.body.uneaten
+            req.body.name, true
         ], result => res.json({ id: result.insertId }))
     })
     .put("/api/burgers/:id", (req, res) => {
         const condition = "id = " + req.params.id
-        console.log("condition ", condition)
-        console.log("fuck ", req.params)
-        console.log("eaten ", req.params.uneaten)
-
         burger.update({
             uneaten: req.body.uneaten
         }, condition, (result) => { 

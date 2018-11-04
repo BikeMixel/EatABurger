@@ -42,7 +42,6 @@ const orm = {
             string += "VALUES ("
             string += printQMarks(vals.length)
             string += ") "
-            console.log("string: ", string)
 
          connection.query(string, vals, function(err, result){
             if (err) {
@@ -57,7 +56,6 @@ const orm = {
             string += objToSql(objColVals)
             string += " WHERE "
             string += condition
-        console.log("string: ", string)
 
         connection.query(string, (err, result) => {
             if (err) {
@@ -70,7 +68,6 @@ const orm = {
         let string = "DELETE FROM " + table
             string += " WHERE "
             string += condition
-            console.log("string: ", string)
 
         connection.query(string, (err, result) => {
             if (err) {

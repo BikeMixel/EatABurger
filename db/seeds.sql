@@ -1,4 +1,4 @@
 USE burger_db;
 
-INSERT INTO burgers (name, uneaten) 
-VALUES ("Bacon", false), ("Cheese", true), ("Plain", true);
+INSERT INTO burgers (name) 
+VALUES ("Bacon"), ("Cheese"), ("Extra Ketchup"), ("Triple Krabby Supreme");

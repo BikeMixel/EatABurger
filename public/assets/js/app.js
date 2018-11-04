@@ -6,30 +6,26 @@ $(function () {
         var newEatState = {
             uneaten: newEat
         }
-        console.log("newEat: ", newEat)
-        console.log("newEatState: ", newEatState)
 
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: newEatState
         }).then(function () {
-            console.log("changed uneaten status to ", newEat)
             location.reload()
         })
     })
-    $(".create-form").on("submit", function (event) {
+    $("#submit").on("click", function (event) {
         event.preventDefault()
 
         var newBurger = {
             name: $("#newBurger").val().trim(),
-            uneaten: $("[name=uneaten]:checked").val().trim()
+            uneaten: true
         }
-        console.log(newBurger)
+
         $.ajax("/api/burgers/", {
             type: "POST",
             data: newBurger
-        }).then(function () {
-            console.log("created new burger")   
+        }).then(function () {  
             location.reload()
         })
     })
@@ -39,7 +35,6 @@ $(function () {
         $.ajax("/api/burgers/" + id, {
             type: "DELETE"
         }).then(function () {
-            console.log("deleted burger")
             location.reload()
         })
     })
