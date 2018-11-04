@@ -1,38 +1,64 @@
-<h1>Eat A Burger!</h1>
+<h1 class="text-center">Eat A Burger!</h1>
 
-<h2>Burgers Of the Past</h2>
+<div class="container">
+    <div class="card">
+        <h2 class="card-header text-center">Order A Burger</h2>
+        <img src="/assets/image/squid.png" alt="Squid">
+        <form class="create-form">
 
-<ul>
-    {{#each burgers}}
-        {{#unless eaten}}
-            {{> burgers/burger-block eat=false}}
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <label for="newBurger">Burger Name:</label>
+                        <input type="text" id="newBurger" name="name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <label for="uneaten">Eaten?</label><br>
+                        <input type="radio" name="uneaten" value="1" checked> Uneaten!<br>
+                        <input type="radio" name="uneaten" value="0"> Eaten!
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5"></div>
+                <div class="col-lg-2">
+                    <button class="btn btn-dark text-white text-center" type="submit" id="submit">Order Up, Squidward!</button>
+                </div>
+                <div class="col-lg-5"></div>
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+    <h2>Burgers Of the Past</h2>
+    <img src="/assets/image/trash.jpeg" alt="Squidward">
+
+    <ul>
+        {{#each burgers}}
+        {{#unless uneaten}}
+        {{> burgers/burger-block uneat=true}}
         {{/unless}}
-    {{/each}}
-</ul>
+        {{/each}}
+    </ul>
 
-<h2>Burgers Of the Future</h2>
+    <h2>Burgers Of the Future</h2>
+    <img src="/assets/image/Krabby_Patty.png" alt="Trash">
 
-<ul>
-    {{#each burgers}}
-        {{#if eaten}}
-            {{> burgers/burger-block eat=true}}
+    <ul>
+        {{#each burgers}}
+        {{#if uneaten}}
+        {{> burgers/burger-block uneat=false}}
         {{/if}}
-    {{/each}}
-</ul>
+        {{/each}}
+    </ul>
 
-<h2>Make A Burger</h2>
-<form class="create-form">
+</div>
 
-  <div class="form-group">
-    <label for="newBurger">Burger Name:</label>
-    <input type="text" id="newBurger" name="name">
-  </div>
 
-  <div class="form-group">
-    <label for="eaten">Eaten?</label><br>
-    <input type="radio" name="eaten" value="0" checked> Uneaten!<br>
-    <input type="radio" name="eaten" value="1"> Eaten!
-  </div>
-
-  <button type="submit" id="submit">Order Up!</button>
-</form>

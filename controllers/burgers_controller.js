@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 const burger = require("../models/burger.js")
+
 router
     .get("/", (_, res) => {
         burger.all(data => {
@@ -14,18 +15,19 @@ router
     })
     .post("/api/burgers", (req, res) => {
         burger.create([
-            "name", "eaten"
+            "name", "uneaten"
         ], [
-            req.body.name, req.body.eaten
+            req.body.name, req.body.uneaten
         ], result => res.json({ id: result.insertId }))
     })
     .put("/api/burgers/:id", (req, res) => {
         const condition = "id = " + req.params.id
         console.log("condition ", condition)
+        console.log("eaten ", req.params.uneaten)
 
         burger.update({
-            eaten: req.body.eaten
-        }, condition, (result) => {
+            uneaten: req.body.uneaten
+        }, condition, (result) => { 
             if (result.changedRows == 0) {
                 return res.status(404).end()
             }

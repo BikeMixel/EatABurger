@@ -4,7 +4,7 @@ $(function () {
         var newEat = $(this).data("neweat")
 
         var newEatState = {
-            eaten: newEat
+            uneaten: newEat
         }
         console.log("newEat: ", newEat)
         console.log("newEatState: ", newEatState)
@@ -13,7 +13,7 @@ $(function () {
             type: "PUT",
             data: newEatState
         }).then(function () {
-            console.log("changed eaten status to ", newEat)
+            console.log("changed uneaten status to ", newEat)
             location.reload()
         })
     })
@@ -22,7 +22,7 @@ $(function () {
 
         var newBurger = {
             name: $("#newBurger").val().trim(),
-            eaten: $("[name=eaten]:checked").val().trim()
+            uneaten: $("[name=uneaten]:checked").val().trim()
         }
         console.log(newBurger)
         $.ajax("/api/burgers/", {
