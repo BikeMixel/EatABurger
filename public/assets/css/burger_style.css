@@ -1,0 +1,39 @@
+.change-eat,
+.delete-burger,
+#submit {
+    background-image: linear-gradient(rgb(227, 245, 245), rgba(29, 188, 194, 0.808));
+    color: black;
+    font-size: 16px
+}
+body {
+    background-image: url("/assets/image/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
+footer {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 25px;
+    text-align: center;
+    background-image: linear-gradient(rgb(227, 245, 245), rgba(29, 188, 194, 0.808));
+    height: 40px
+}
+.card {
+    font-family: 'Spicy Rice', cursive;
+    font-size: 20px;
+    background-image: url("/assets/image/card.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
+.jumbotron {
+    font-family: 'Spicy Rice', cursive;
+    background-image: url("/assets/image/card.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center
+}
+.card-header {
+    font-family: 'Spicy Rice', cursive;
+    color: rgb(227, 245, 245);
+}
